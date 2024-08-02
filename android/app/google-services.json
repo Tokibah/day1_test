@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1072383354830",
+    "project_id": "wsf-24",
+    "storage_bucket": "wsf-24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072383354830:android:89ddc619655ff1932aad9f",
+        "android_client_info": {
+          "package_name": "com.example.d1_wsf24_driver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7kOjS7mX1dsCstvWjjQ7DEuZu3pXf8V8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
