@@ -43,14 +43,12 @@ class _MyAppState extends State<MyApp> {
   Future<void> _checkToken() async {
     final prefs = await SharedPreferences.getInstance();
     user = prefs.getString('token');
-    if (user == null) {
-      return;
-    } else {
-      setState(() {
-        _existToken = true;
-        notLoading = true;
-      });
+
+    if (user != null) {
+      _existToken = true;
     }
+    notLoading = true;
+    setState(() {});
   }
 
   @override

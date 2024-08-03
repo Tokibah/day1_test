@@ -69,6 +69,8 @@ class _VehicleSignUpState extends State<VehicleSignUp> {
     );
 
     await Vehicle.addVehicle(newVehicle);
+    await Driver.addDriver(widget.newDriver!, newVehicle.vLabel);
+    await Driver.uploadImage(widget.image, '', widget.newDriver!.idLabel);
 
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const LaunchPage()));

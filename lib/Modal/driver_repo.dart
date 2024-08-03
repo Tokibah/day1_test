@@ -72,13 +72,13 @@ class Driver {
     }
   }
 
-  static Future<void> addDriver(Driver driver, String anchor) async {
+  static Future<void> addDriver(Driver driver, String vehicleLabel) async {
     try {
       final byte = utf8.encode(driver.password!);
       final hashed = sha256.convert(byte).toString();
       driver.password = hashed;
 
-      final anVehicle = _firestore.collection('Vehicle').doc(anchor);
+      final anVehicle = _firestore.collection('Vehicle').doc(vehicleLabel);
       driver.ownVehicle = anVehicle;
 
       await _firestore

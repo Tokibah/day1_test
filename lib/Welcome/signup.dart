@@ -80,6 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
           const SnackBar(content: Text('Please upload an image')));
     } else if (_formkey.currentState!.validate()) {
       _formkey.currentState!.save();
+      _formkey2.currentState!.save();
 
       final labelHead = WordPair.random();
       final labelEnd = Random().nextInt(100);

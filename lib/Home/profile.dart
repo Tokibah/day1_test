@@ -24,6 +24,7 @@ class _ProfileState extends State<Profile> {
   int seatCount = 0;
   Vehicle? car;
   late Driver user;
+  late List<Ride> ride;
 
   bool isLoading = false;
 
@@ -36,9 +37,12 @@ class _ProfileState extends State<Profile> {
   Future<void> _getUserData() async {
     user = await Driver.fetchDriver(widget.userId);
     car = await Vehicle.fetchVehicle(user.ownVehicle!);
-    final ride = await Ride.getRide(car!);
-    ride.sort((a, b) => (b.rider?.length ?? 0).compareTo(a.rider?.length ?? 0));
-    seatCount = ride[0].rider!.length;
+    ride = await Ride.getRide(car!);
+    if (ride.isNotEmpty) {
+      ride.sort(
+          (a, b) => (b.rider?.length ?? 0).compareTo(a.rider?.length ?? 0));
+      seatCount = ride[0].rider!.length;
+    }
 
     setState(() {
       isLoading = true;
@@ -84,6 +88,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
+      
       return Scaffold(
           backgroundColor: ThemeProvider.honeydew,
           body: Column(children: [

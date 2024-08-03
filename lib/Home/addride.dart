@@ -54,6 +54,7 @@ class _AddRideState extends State<AddRide> {
   }
 
   Future<void> addRide() async {
+    
     final labelHead = WordPair.random();
     final labelTail = Random().nextInt(100);
 
@@ -239,7 +240,7 @@ class _AddRideState extends State<AddRide> {
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Set Date and Time properly')));
                   }
-                  if (_formkey.currentState!.validate()) {
+                  else if (_formkey.currentState!.validate()) {
                     _formkey.currentState!.save();
 
                     addRide();

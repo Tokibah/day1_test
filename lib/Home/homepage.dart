@@ -220,18 +220,20 @@ class _HomepageState extends State<Homepage> {
                   ]),
                 ),
                 SizedBox(height: 20.h),
-                SizedBox(
-                  height: 510.h,
-                  child: ListView.builder(
-                      itemCount: ride.length,
-                      itemBuilder: (context, index) {
-                        final currentRide = ride[index];
-                        return RideCard(
-                            ride: currentRide,
-                            vehicle: car!,
-                            refresh: getUserData);
-                      }),
-                )
+                ride.isNotEmpty
+                    ? SizedBox(
+                        height: 510.h,
+                        child: ListView.builder(
+                            itemCount: ride.length,
+                            itemBuilder: (context, index) {
+                              final currentRide = ride[index];
+                              return RideCard(
+                                  ride: currentRide,
+                                  vehicle: car!,
+                                  refresh: getUserData);
+                            }),
+                      )
+                    : Center(child: Text('No ride available'))
               ]),
             ),
           ),
