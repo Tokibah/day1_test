@@ -31,6 +31,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _existToken = false;
+  bool notLoading = false;
   String? user;
 
   @override
@@ -45,8 +46,10 @@ class _MyAppState extends State<MyApp> {
     if (user == null) {
       return;
     } else {
-      _existToken = true;
-      setState(() {});
+      setState(() {
+        _existToken = true;
+        notLoading = true;
+      });
     }
   }
 
@@ -60,7 +63,9 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           theme: Provider.of<ThemeProvider>(context).themeData,
           home: child),
-      child: _existToken ? PushNavigation(user: user) : const LaunchPage(),
+      child: notLoading
+          ? (_existToken ? PushNavigation(user: user) : const LaunchPage())
+          : Center(child: CircularProgressIndicator()),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:d1_wsf24_driver/Modal/driver_repo.dart';
 import 'package:d1_wsf24_driver/Modal/ride_repo.dart';
 import 'package:d1_wsf24_driver/Modal/vehicle_repo.dart';
+import 'package:d1_wsf24_driver/Welcome/launchpage.dart';
 import 'package:d1_wsf24_driver/Welcome/vehicle_signup.dart';
 import 'package:d1_wsf24_driver/main.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ class _ProfileState extends State<Profile> {
     await prefs.remove('token');
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const MyApp()),
+      MaterialPageRoute(builder: (context) => const LaunchPage()),
     );
   }
 
