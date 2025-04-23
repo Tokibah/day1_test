@@ -74,7 +74,8 @@ class _VerifyPageState extends State<VerifyPage> {
 
     return Scaffold(
       appBar: AppBar(),
-      body: Column(children: [
+      body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Row(children: []),
         const Text('Choose either one to verify your account'),
         ElevatedButton(
             onPressed: () {
